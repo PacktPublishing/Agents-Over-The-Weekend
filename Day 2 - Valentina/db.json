@@ -1,34 +1,3 @@
 {
-  "cart": [
-    {
-      "id": "f876",
-      "name": "Ricotta Cheese",
-      "price": 7.75
-    },
-    {
-      "id": "3c82",
-      "name": "Ricotta Cheese",
-      "price": 7.75
-    },
-    {
-      "id": "f592",
-      "name": "Ricotta Cheese",
-      "price": 5.5
-    },
-    {
-      "id": "eba9",
-      "name": "Ricotta Cheese",
-      "price": 5.5
-    },
-    {
-      "id": "c86d",
-      "name": "Ricotta Cheese",
-      "price": 15
-    },
-    {
-      "id": "67da",
-      "name": "Ricotta Cheese",
-      "price": 5.5
-    }
-  ]
+  "cart": []
 }
