@@ -1,3 +1,14 @@
 {
-  "cart": []
+  "cart": [
+    {
+      "id": "6ee0",
+      "name": "Tigelle Bread",
+      "price": 3.5
+    },
+    {
+      "id": "7169",
+      "name": "Ricotta Cheese",
+      "price": 7.75
+    }
+  ]
 }
