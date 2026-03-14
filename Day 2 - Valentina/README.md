@@ -55,56 +55,45 @@ LANGSMITH_PROJECT = "xxx"
 
 ## Setup Requirements
 
-1. Environment Variables:
-   - AZURE_OPENAI_API_VERSION
-   - AZURE_OPENAI_ENDPOINT
-   - AZURE_OPENAI_API_KEY
-   - AZURE_OPENAI_CHAT_DEPLOYMENT_NAME
+1. Environment Variables (in a `.env` file in the parent `code/` directory):
+   - OPENAI_API_KEY
    - LANGSMITH_API_KEY
    - LANGSMITH_ENDPOINT
    - LANGSMITH_PROJECT
 
 2. Required Python Packages:
-   - langchain
-   - openai
-   - python-dotenv
-   - faiss-cpu
-   - sqlite3
-   - pandas
-   - requests
-   - langsmith
 
-To install your packages, run the following command:
-
-```
-pip install requirements.txt -r
+```bash
+pip install -r requirements.txt
 ```
 
 3. Additional Files:
-   - `piadineria.db`: SQLite database
-   - `documents/`: Folder containing PDF documentation
-   - `db.json` running on localhost:3000 for cart functionality. To run this server, make sure to install `json-server` by running the following command in your terminal:
+   - `piadineria.db`: SQLite database (auto-created by running the data cell in the notebook)
+   - `documents/`: Folder containing PDF documentation for RAG
+   - `db.json`: Local cart storage file (auto-created by `webapp.py` on first run)
 
+## Running the Web App
+
+The Flask web app (`webapp.py`) provides a full restaurant website with an AI chatbot, menu browsing, and cart functionality. To run it:
+
+```bash
+cd "Day 2 - Valentina"
+python webapp.py
 ```
-npm install -g json-server
 
-```
-Then, you can run the server with the following command:
+The app will start on **http://localhost:5000**. Open that URL in your browser.
 
-```
-json-server --watch db.json --port 3000
-```
+> **Note:** Make sure you have already run the database creation cell in the notebook (or run `webapp.py` which initializes `db.json` automatically). The `piadineria.db` SQLite database must exist — you can create it by running the data setup cell in the notebook first.
 
-## Usage
+## Using the Notebook
 
-The notebook provides an interactive chat interface where users can:
+The notebook (`AIAgent.ipynb`) provides an interactive environment to:
 - Query product information
 - Check prices and availability
 - Add items to cart
 - Get information about allergens and ingredients
 - Access restaurant documentation
 - Learn about the restaurant's history and certifications
-
 
 ## Agent Evaluation
 
@@ -117,8 +106,8 @@ The notebook includes comprehensive evaluation capabilities:
 
 ## Notes
 
-- The cart functionality requires a running JSON server on localhost:3000
 - All sensitive information should be stored in a `.env` file
+- The web app manages cart state locally via `db.json` — no external server (e.g., json-server) is needed
 - Regular evaluation of agent performance is recommended through LangSmith
 
 ## Additional Resources
@@ -126,4 +115,3 @@ The notebook includes comprehensive evaluation capabilities:
 - [LangSmith](https://docs.smith.langchain.com/)
 - [Observability](https://docs.smith.langchain.com/observability)
 - [Evaluation](https://docs.smith.langchain.com/evaluation)
-- [Streamlit integration with LangChain](https://python.langchain.com/docs/integrations/callbacks/streamlit/)

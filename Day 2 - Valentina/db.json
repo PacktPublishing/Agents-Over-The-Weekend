@@ -1,34 +1,14 @@
 {
   "cart": [
     {
-      "id": "f876",
+      "id": "6ee0",
+      "name": "Tigelle Bread",
+      "price": 3.5
+    },
+    {
+      "id": "7169",
       "name": "Ricotta Cheese",
       "price": 7.75
-    },
-    {
-      "id": "3c82",
-      "name": "Ricotta Cheese",
-      "price": 7.75
-    },
-    {
-      "id": "f592",
-      "name": "Ricotta Cheese",
-      "price": 5.5
-    },
-    {
-      "id": "eba9",
-      "name": "Ricotta Cheese",
-      "price": 5.5
-    },
-    {
-      "id": "c86d",
-      "name": "Ricotta Cheese",
-      "price": 15
-    },
-    {
-      "id": "67da",
-      "name": "Ricotta Cheese",
-      "price": 5.5
     }
   ]
 }

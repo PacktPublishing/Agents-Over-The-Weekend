@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance AI Advisor</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app">
+        <!-- ══════════ SIDEBAR ══════════ -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">💰</span>
+                <h1 class="logo-text">FinanceAI</h1>
+            </div>
+
+            <button class="new-chat-btn" onclick="resetChat()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                New Chat
+            </button>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Quick Actions</h3>
+                <button class="suggestion-btn" onclick="sendSuggestion('Show me my portfolio')">
+                    <span class="suggestion-icon">📊</span> View Portfolio
+                </button>
+                <button class="suggestion-btn" onclick="sendSuggestion('Analyze my portfolio diversification')">
+                    <span class="suggestion-icon">🔍</span> Analyze Diversification
+                </button>
+                <button class="suggestion-btn" onclick="sendSuggestion('How can I optimize my portfolio?')">
+                    <span class="suggestion-icon">⚡</span> Optimize Portfolio
+                </button>
+                <button class="suggestion-btn" onclick="sendSuggestion('What are the latest market trends?')">
+                    <span class="suggestion-icon">📈</span> Market Trends
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <p class="sidebar-note">Powered by LangChain + OpenAI</p>
+            </div>
+        </aside>
+
+        <!-- ══════════ MAIN CHAT AREA ══════════ -->
+        <main class="chat-main">
+            <!-- Mobile header -->
+            <header class="chat-header">
+                <button class="menu-btn" onclick="toggleSidebar()" title="Toggle sidebar">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+                <div class="chat-header-title">
+                    <h2>Personal Finance Advisor</h2>
+                    <span class="chat-status">Online &mdash; AI Agent</span>
+                </div>
+            </header>
+
+            <!-- Messages area -->
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome message -->
+                <div class="welcome-screen" id="welcome-screen">
+                    <div class="welcome-icon">💰</div>
+                    <h2>Personal Finance AI Advisor</h2>
+                    <p>I can help you analyze your investment portfolio, check market trends, and suggest optimizations. Ask me anything!</p>
+                    <div class="welcome-chips">
+                        <button class="chip" onclick="sendSuggestion('Show me my portfolio')">📊 View my portfolio</button>
+                        <button class="chip" onclick="sendSuggestion('How diversified is my portfolio?')">🔍 Check diversification</button>
+                        <button class="chip" onclick="sendSuggestion('What sectors should I invest in?')">💡 Investment ideas</button>
+                        <button class="chip" onclick="sendSuggestion('Latest stock market news')">📰 Market news</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input area -->
+            <div class="chat-input-area">
+                <form class="chat-input-form" onsubmit="sendMessage(event)">
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="Ask about your portfolio, markets, investments..."
+                        autocomplete="off"
+                    >
+                    <button type="submit" id="chat-send-btn" title="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </form>
+                <p class="input-disclaimer">AI can make mistakes. Verify important financial decisions with a professional.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -6,3 +6,5 @@ langchain-openai
 langchain-community
 langchain-core
 langchain-text-splitters
+flask
+langgraph
